@@ -1,0 +1,5 @@
+#!/bin/bash
+
+FN=`echo $1 | sed 's/_/-/g'`
+echo ********************** $FN **********************
+lynx -dump -nolist http://www.php.net/manual/en/print/function.$FN.php | sed -n /^$1/,/^.*User\ Contributed\ Notes/p | grep -v 'User\ Contributed\ Notes'
